@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Minimoto.com</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<style>
+
+	:root{
+	   --peru:#ffae00;
+	   --black:#222;
+	   --white:#fff;
+	   --light-black:#666;
+	   --light-white:#ccc;
+	   --light-bg:#f5f5f5;
+	   --dark-bg:rgba(0,0,0,.7);
+	   --border:.1rem solid #aaa;
+	   --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+	}
+	
+	*{
+	   font-family: 'Open Sans', sans-serif;
+	   margin:0; padding:0;
+	   box-sizing: border-box;
+	   outline: none; border:none;
+	   text-decoration: none;
+	   transition: all 0.4s cubic-bezier(.43,1.1,.62,1.08);
+	   text-transform: capitalize;
+	}
+	
+	* > img{
+	   user-select: none;
+	   pointer-events: none;
+	}
+	
+	html{
+	   font-size: 62.5%;
+	   overflow-x: hidden;
+	   scroll-behavior: smooth;
+	   scroll-padding-top: 6rem;
+	}
+	
+	html::-webkit-scrollbar{
+	   width: 1rem;
+	}
+	
+	html::-webkit-scrollbar-track{
+	   background-color: var(--white);
+	}
+	
+	html::-webkit-scrollbar-thumb{
+	   background-color: var(--peru);
+	}
+	
+	section{
+	   padding:5rem 10%;
+	}
+	
+	.heading{
+	   text-align: center;
+	   margin-bottom: 3rem;
+	}
+	
+	.heading span{
+	   font-size: 2.5rem;
+	   color:var(--peru);
+	}
+	
+	.heading h3{
+	   font-size: 4.5rem;
+	   color:var(--black);
+	}
+	
+	.btn{
+	   margin-top: 1rem;
+	   display: inline-block;
+	   background: var(--peru);
+	   color:var(--white);
+	   font-size: 2rem;
+	   cursor: pointer;
+	   padding:1rem 3rem;
+	}
+	
+	.btn:hover{
+	   letter-spacing: .2rem;
+	}
+	
+	.header{
+	   padding-top: 2rem;
+	   padding-bottom: 2rem;
+	   display: flex;
+	   align-items: center;
+	   justify-content: space-between;
+	   box-shadow: var(--box-shadow);
+	   position: sticky;
+	   top:0; left:0; right: 0;
+	   background: var(--white);
+	   z-index: 1000;
+	}
+	
+	.header .logo{
+	   font-size: 2.5rem;
+	   font-weight: bolder;
+	   color:var(--black);
+	}
+	
+	.header .logo i{
+	   color:var(--peru);
+	   padding-right: .5rem;
+	}
+	
+	.header .navbar a{
+	   font-size: 2rem;
+	   margin-left: 2rem;
+	   color:var(--light-black);
+	}
+	
+	.header .navbar a:hover{
+	   color:var(--peru);
+	}
+	
+	#menu-btn{
+	   font-size: 2.5rem;
+	   cursor: pointer;
+	   color:var(--black);
+	   display: none;
+	}
+	
+
+	
+	.home{
+	   padding:0;
+	   background: var(--black);
+	}
+	
+	.home .slide{
+	   min-height: 100vh;
+	   background-size: cover !important;
+	   background-position: center !important;
+	   position: relative;
+	   z-index: 0;
+	   display: flex;
+	   align-items: center;
+	   justify-content: center;
+	}
+	
+	.home .slide::before{
+	   content: '';
+	   position: absolute;
+	   top:0; left:0;
+	   height: 100%;
+	   width: 100%;
+	   background: var(--dark-bg);
+	   z-index: -1;
+	}
+	
+	.home .slide .content{
+	   text-align: center;
+	   width: 70rem;
+	   display: none;
+	}
+	
+	.home .slide .content span{
+	   font-size: 3rem;
+	   display: block;
+	   padding-bottom: .5rem;
+	   color:var(--light-white);
+	   animation:fadeIn 0.4s cubic-bezier(.54,1.3,.63,1.34) .2s backwards;
+	}
+	
+	.home .slide .content h3{
+	   font-size: 8vw;
+	   text-transform: uppercase;
+	   color:var(--white);
+	   text-shadow: 0 .5rem 1rem rgba(0,0,0,.7);
+	   line-height: 1;
+	   padding:2rem 0;
+	   animation:fadeIn 0.4s cubic-bezier(.54,1.3,.63,1.34) .4s backwards;
+	}
+	
+	.home .slide .content .btn{
+	   animation:fadeIn 0.4s cubic-bezier(.54,1.3,.63,1.34) .6s backwards;
+	}
+	
+	.home .swiper-slide-active .content{
+	   display: inline-block;
+	}
+	
+	.swiper-button-next,
+	.swiper-button-prev{
+	   height: 5rem;
+	   width: 5rem;
+	   line-height: 5rem;
+	   background: var(--white);
+	   color:var(--black);
+	}
+	
+	.swiper-button-next:hover,
+	.swiper-button-prev:hover{
+	   background: var(--peru);
+	   color:var(--white);
+	}
+	
+	.swiper-button-next::after,
+	.swiper-button-prev::after{
+	   font-size: 2rem;
+	}
+	
+	
+	/* about */
+	
+	.about{
+	   display: flex;
+	   align-items: center;
+	   flex-wrap: wrap;
+	   gap: 2rem;
+	}
+	
+	.about .image{
+	   flex: 1 1 41rem;
+	}
+	
+	.about .image img{
+	   width: 100%;
+	}
+	
+	
+	.about .content{
+	   flex: 1 1 41rem;
+	}
+	.about .content .title{
+	   font-size: 3rem;
+	   color: var(--black);
+	}
+	.about .content p{
+	   font-size: 1.7rem;
+	   color: var(--light-black);
+	   padding: 1rem;
+	   line-height: 2;
+	}
+	
+	.about .content .icons-container{
+	   display: flex;
+	   flex-wrap: wrap;
+	   gap: 2rem;
+	   margin-top: 3rem;
+	}
+	.about .content .icons-container .icons{
+	   flex: 1 1 16rem;
+	   text-align: center;
+	   background: var(--light-bg);
+	   padding: 3rem 2rem;
+	}
+	.about .content .icons-container .icons img{
+	   height: 5rem;
+	}
+	.about .content .icons-container .icons h3{
+	   padding-top: 1rem;
+	   font-size: 2rem;
+	   color: var(--light-black);
+	   font-weight: bold;
+	}
+	
+	.food{
+	   background: var(--light-bg);
+	}
+	
+	.food .slide{
+	   text-align: center;
+	   padding: 4rem 2rem;
+	   border-radius: .5rem;
+	   transform: scale(.9);
+	   opacity: .85;
+	   margin-bottom: 4rem;
+	   cursor: pointer;
+	}
+	.swiper-pagination-bullet-active{
+	   background: var(--peru);
+	}
+	
+	.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal{
+	   bottom: 0;
+	}
+	
+	.food .swiper-slide-active{
+	   transform: scale(1);
+	   opacity: 1;
+	   background: var(--white);
+	   box-shadow: var(--box-shadow);
+	   border: var(--border);
+	}
+	
+	.food .slide img{
+	   height: 25rem;
+	   margin-bottom: 1rem;
+	}
+	.food .slide h3{
+	   font-size: 2.5rem;
+	   padding: 1rem 0;
+	   color: var(--black);
+	}
+	
+	.food .slide .price{
+	   font-size: 2.5rem;
+	   color: var(--peru);
+	}
+	.food-preview-container{
+	   background: var(--dark-bg);
+	   position: fixed;
+	   top: 0;
+	   left: 0;
+	   width: 100%;
+	   z-index: 1100;
+	   display: none;
+	   align-items: center;
+	   justify-content: center;
+	}
+	
+	.food-preview-container .food-preview{
+	   text-align: center;
+	   background: var(--white);
+	   padding: 3rem 2rem;
+	   border-radius: .5rem;
+	   display: none;
+	   width: 35rem;
+	}
+	.food-preview-container .food-preview.active{
+	   display: inline-block;
+	   animation: fadeIn 0.4s cubic-bezier(.54,1.3,63,1.34).2s backwards;
+	}
+	
+	.food-preview-container .food-preview img{
+	   height: 25rem;
+	   margin-bottom: 1rem;
+	}
+	.food-preview-container .food-preview h3{
+	   padding: 1rem 0;
+	   font-size: 2.5rem;
+	   color: var(--black);
+	}
+	
+	.food-preview-container .food-preview .stars{
+	   margin-top: .5rem;
+	}
+	
+	.food-preview-container .food-preview .stars i{
+	   font-size: 1.7rem;
+	   color: var(--peru);
+	}
+	.food-preview-container .food-preview p{
+	   font-size: 1.6rem;
+	   color: var(--light-black);
+	   padding-bottom: 1rem 0;
+	   line-height: 2;
+	}
+	.food-preview-container .food-preview .price{
+	   font-size: 2.5rem;
+	   color: var(--black);
+	   margin-bottom: .5rem;
+	}
+	#close-preview{
+	   position: absolute;
+	   top: 1.5rem; right: 2.5rem;
+	   font-size: 6rem;
+	   cursor: pointer;
+	   color: var(--white);
+	}
+	#close-preview:hover{
+	   transform: rotate(90deg);
+	}
+	
+	.gallery .gallery-container{
+	   display: grid;
+	   grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+	   gap: 2rem;
+	}
+	.gallery .gallery-container .box{
+	   height: 40rem;
+	   position: relative;
+	   overflow: hidden;
+	}
+	
+	.gallery .gallery-container img{
+	   height: 100%;
+	   width: 100%;
+	   object-fit: cover;
+	}
+	
+	.gallery .gallery-container .box .icon{
+	   display: none;
+	   align-items: center;
+	   justify-content: center;
+	   position: absolute;
+	   top: 0%; left: 0%;
+	   z-index: 10;
+	   height: 100%;
+	   width: 100%;
+	   background: var(--dark-bg);
+	}
+	
+	.gallery .gallery-container .box .icon i{
+	   font-size: 6rem;
+	   color: #fff;
+	}
+	
+	.gallery .gallery-container .box:hover .icon{
+	   display: flex;
+	}
+	
+	.menu{
+	   background: var(--light-bg);   
+	}
+	
+	.menu .slide .title{
+	   padding: 1rem;
+	   font-size: 3rem;
+	   color: #fff;
+	   background: var(--peru);
+	   margin-bottom: 3rem;
+	   text-align: center;
+	}
+	
+	.menu .slide .box-container{
+	   display: flex;
+	   flex-wrap: wrap;
+	   gap: 2rem;
+	   margin-bottom: 4rem;
+	}
+	
+	.menu .slide .box-container .box{
+	   flex: 1 1 41rem;
+	   background: var(--white);
+	   padding: 2rem;
+	   box-shadow: var(--box-shadow);
+	   border: var(--border);
+	   display: flex;
+	   align-items: center;
+	   gap: 1rem;
+	   justify-content: space-between;
+	}
+	
+	.menu .slide .box-container .box h3{
+	   font-size: 3.5rem;
+	   color: var(--black);
+	   padding-bottom: .5rem;
+	}
+	.menu .slide .box-container .box p{
+	   font-size: 1.6rem;
+	   color: var(--light-black);
+	   line-height: 2;
+	}
+	
+	.menu .slide .box-container .box .price{
+	   font-size: 3.5rem;
+	   color: var(--peru);
+	}
+	
+	.menu .slide .box-container .box:hover{
+	   transform: scale(.9);
+	   cursor: pointer;
+	}
+	
+	.order{
+	   background: var(--peru);
+	}
+	
+	.order .heading span{
+	   color: var(--white);
+	}
+	
+	.order .heading h3{
+	   color: var(--white);
+	}
+	
+	.order form{
+	   padding: 2rem;
+	   background: var(--white);
+	   box-shadow: var(--box-shadow);
+	}
+	.order form .box-container{
+	   display: flex;
+	   flex-wrap: wrap;
+	   gap: 2rem;
+	}
+	
+	.order form .box-container .box{
+	   flex: 1 1 41rem;
+	}
+	
+	.order form .box-container .box .inputBox input,
+	.order form .box-container .box .inputBox textarea{
+	   width: 100%;
+	   margin:  1rem 0;
+	   padding: 1.2rem 1.4rem;
+	   font-size: 1.7rem;
+	   color: var(--light-black);
+	   border: var(--border);
+	   text-transform: none;
+	}
+	
+	.order form .box-container .box .inputBox input::placeholder,
+	.order form .box-container .box .inputBox textarea::placeholder{
+	   text-transform: capitalize;
+	}
+	
+	.order form .box-container .box .inputBox input:focus,
+	.order form .box-container .box .inputBox textarea:focus{
+	   background: var(--black);
+	   color: var(--white);
+	}
+	
+	.order form .box-container .box .inputBox input:focus::placeholder,
+	.order form .box-container .box .inputBox textarea:focus::placeholder{
+	   color: var(--light-white);
+	}
+	
+	.order form .box-container .box .inputBox textarea{
+	   height: 20rem;
+	   resize: none;
+	}
+	
+	.order form .box-container .box .inputBox .map{
+	   height: 20rem;
+	   width: 100%;
+	   margin: 1rem 0;
+	   padding: .5rem 0;
+	}
+	.order form .box-container .box .inputBox span{
+	   color: var(--light-black);
+	   font-size: 2rem;
+	}
+	
+	.footer{
+	   text-align: center;
+	}
+	
+	.footer .icons-container{
+	   display: grid;
+	   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+	   gap: 2rem;
+	}
+	
+	.footer .icons-container .icons{
+	   text-align: center;
+	   padding: 3rem 2rem;
+	}
+	
+	.footer .icons-container .icons i{
+	   height: 6rem;
+	   width: 6rem;
+	   border-radius: 50%;
+	   background: var(--peru);
+	   color: var(--white);
+	   margin-bottom: 1rem;
+	   line-height: 5.7rem;
+	   font-size: 2rem;
+	}
+	
+	.footer .icons-container .icons h3{
+	   font-size: 2rem;
+	   color: var(--black);
+	   padding: 1rem 0;
+	}
+	
+	.footer .icons-container .icons p{
+	   line-height: 1.5rem;
+	   font-size: 1.7rem;
+	   color: var(--light-black);
+	   text-transform: none;
+	   margin-bottom: .5rem;
+	}
+	
+	.footer .share{
+	   margin: 2rem 0;
+	}
+	
+	.footer .share a{
+	   height: 6rem;
+	   width: 6rem;
+	   line-height: 5.8rem;
+	   background: var(--black);
+	   color: var(--white);
+	   margin: 0 .3rem;
+	   font-size: 2.5rem;
+	}
+	
+	.footer .share a:hover{
+	   background: var(--peru);
+	}
+	
+	.footer .credit{
+	   padding-top: 2rem;
+	   margin-top: 3rem;
+	   border-top: var(--border);
+	   font-size: 2rem;
+	   color: var(--light-black);
+	}
+	
+	.footer .credit span{
+	   color: var(--peru);
+	}
+
+	
+	</style>
+<body>
+   
+<!-- header section starts     -->
+
+<section class="header">
+
+   <a href="#" class="logo"> <i class="fas fa-utensils"></i> minimoto </a>
+
+   <nav class="navbar">
+      <a href="#home">home</a>
+      <a href="#about">about</a>
+      <a href="#food">food</a>
+      <a href="#gallery">gallery</a>
+      <a href="#menu">menu</a>
+      <a href="#order">order</a>
+   </nav>
+
+   <div id="menu-btn" class="fas fa-bars"></div>
+
+</section>
+
+<!-- header section ends    -->
+
+<!-- home section starts  -->
+
+<section class="home" id="home">
+
+   <div class="swiper home-slider">
+
+      <div class="swiper-wrapper">
+
+         <div class="swiper-slide slide" style="background: url(https://1.bp.blogspot.com/-kpY9lr-a4Ec/X28_Tw6qvVI/AAAAAAAAFd4/1e6LHcbgYXQfWLTBkqfBUBNRN16gU0Z2gCLcBGAsYHQ/s733/Top-Famous-Indian-Chefs.webp) no-repeat;">
+
+   </div>
+
+</section>
+
+<!-- home section ends -->
+<!-- About section start -->
+
+
+<section class="about" id="about">
+
+<div class="image">
+   <img src="./images/about-img.png" alt="">
+</div>
+
+<div class="content">
+   <h3 class="title">Welcome to our Restaurant</h3>
+   <img src="https://lh3.googleusercontent.com/p/AF1QipOF79t5TnoJ9dOj7J4PG5R9vXV1z9nhzRcKKdyC=s680-w680-h510" alt="">
+   <p>Our mission is to be the most sustainable restaurant in New York by sourcing our ingredients locally, supplementing produce with herbs grown on our rooftop garden, and giving back to the community through urban farming education.
+
+	Our mission is to give our customers a place to celebrate life’s special moments by offering the best food, service, and ambiance in Bangalore.</p>
+      <a href="#" class="btn">read more</a>
+      <div class="icons-container">
+         <div class="icons">
+            <img src="https://media.istockphoto.com/id/922783734/photo/assorted-indian-recipes-food-various.jpg?s=612x612&w=0&k=20&c=p8DepvymWfC5j7c6En2UsQ6sUM794SQMwceeBW3yQ9M=" alt="">
+            <h3>quality food</h3>
+         </div>
+         <div class="icons">
+            <img src="https://thumbs.dreamstime.com/b/summer-blue-sky-cold-drinks-165280519.jpg" alt="">
+            <h3>food and drinks</h3>
+         </div>
+         <div class="icons">
+            <img src="https://static.vecteezy.com/system/resources/previews/000/620/288/original/chef-hat-logo-and-symbols-black-color-vector-icon.jpg" alt="">
+            <h3>expert chef</h3>
+         </div>
+      </div>
+</div>
+
+</section>
+
+
+<!-- About section ends -->
+<!-- food section starts -->
+
+<section class="food" id="food">
+
+   <div class="heading">
+   <span>popular dishes</span>
+   <h3>our delicious food</h3>
+   </div>
+
+      <div class="swiper-slide slide" data-name="food-1">
+         <img src="https://www.nangaihomemadefood.com/product-images/nonveg-meals.jpeg/1746481000000636116/600x600" alt="">
+         <h3>Meals</h3>
+         <div class="price">600</div>
+      </div>
+
+</div>
+</div>
+
+</section>
+
+<!-- food section ends -->
+<!-- food preview section starts -->
+
+
+<section class="food-preview-container">
+
+   <div id="close-preview" class="fas fa-times"></div>
+
+   <div class="food-preview" data-target="food-1">
+      <img src="https://img.freepik.com/premium-photo/tasty-delicious-prawns-biryani-jheenga-pulav-shrimp-pilaf_466689-71571.jpg" alt="">
+      <div class="price">350</div>
+
+   </div>
+   <div class="food-preview" data-target="food-2">
+      <img src="https://www.simplyrecipes.com/thmb/-QzmQynep4nIQ3tncO0v3_xpPd0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__01__Butter-Chicken-LEAD-2-6ca76f24bbe74114a09958073cb9c76f.jpg" alt="">
+      <div class="price">350</div>
+
+   </div>
+   <div class="food-preview" data-target="food-3">
+      <img src="https://www.licious.in/blog/wp-content/uploads/2022/06/mutton-hyderabadi-biryani-01.jpg" alt="">
+      <div class="price">350</div>
+
+   </div>
+   <div class="food-preview" data-target="food-4">
+      <img src="https://cdn.holidaytravel.co/uploaded_files/destination_img/2016_0057ee12d485782india-top-25-non-veg-food-destinations.jpg" alt="">
+      <div class="price">350</div>
+
+   </div>
+   <div class="food-preview" data-target="food-5">
+      <img src="https://d4t7t8y8xqo0t.cloudfront.net/resized/750X436/eazytrendz%2F2036%2Ftrend20180924044159.jpg" alt="">
+      <div class="price">350</div>
+
+   </div>
+
+</section>
+
+
+<!-- food preview section ends -->
+<!-- Gallery section starts -->
+
+<section class="gallery" id="gallery">
+
+   <div class="heading">
+      <span>our gallery</span>
+      <h3>our untold stories</h3>
+   </div>
+
+   <div class="gallery-container">
+
+      <a href="food-galler-img-1.jpg" class="box">
+         <img src="https://img.freepik.com/premium-photo/tasty-delicious-prawns-biryani-jheenga-pulav-shrimp-pilaf_466689-71571.jpg" alt="">
+         <div class="icon"> <i class="fas fa-plus"></i></div>
+      </a>
+
+      <a href="food-galler-img-2.jpg" class="box">
+         <img src="https://www.simplyrecipes.com/thmb/-QzmQynep4nIQ3tncO0v3_xpPd0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__01__Butter-Chicken-LEAD-2-6ca76f24bbe74114a09958073cb9c76f.jpg" alt="">
+         <div class="icon"> <i class="fas fa-plus"></i></div>
+      </a>
+      
+      <a href="food-galler-img-3.jpg" class="box">
+         <img src="https://www.licious.in/blog/wp-content/uploads/2022/06/mutton-hyderabadi-biryani-01.jpg" alt="">
+         <div class="icon"> <i class="fas fa-plus"></i></div>
+      </a>
+      
+      <a href="food-galler-img-4.jpg" class="box">
+         <img src="https://healthyrecipesblogs.com/wp-content/uploads/2013/02/tandoori-chicken-featured-2021.jpg" alt="">
+         <div class="icon"> <i class="fas fa-plus"></i></div>
+      </a>
+      
+      <a href="food-galler-img-5.jpg" class="box">
+         <img src="https://d4t7t8y8xqo0t.cloudfront.net/resized/750X436/eazytrendz%2F2036%2Ftrend20180924044159.jpg" alt="">
+         <div class="icon"> <i class="fas fa-plus"></i></div>
+      </a>
+      
+      <a href="food-galler-img-6.jpg" class="box">
+         <img src="https://curlytales.com/wp-content/uploads/2020/09/Untitled-51-min-1170x614.png" alt="">
+         <div class="icon"> <i class="fas fa-plus"></i></div>
+      </a>
+
+   </div>
+
+</section>
+
+<!-- Gallery section ends -->
+<!-- Menu section starts -->
+
+<section class="menu" id="menu">
+
+   <div class="heading">
+      <span>our menu</span>
+      <h3>our popular dishes</h3>
+   </div>
+
+   <div class="swiper menu-slider">
+
+      <div class="swiper-wrapper">
+
+         <div class="swiper-slide slide">
+            <h3 class="title">
+               Food's
+            </h3>
+
+            <div class="box-container">
+               <div class="box">
+                  <div class="info">
+                     <h3>Biryani</h3>
+                  <p>A spiced mix of meat and rice, traditionally cooked over an open fire in a leather pot.</p>
+				</div>
+                  <div class="price">350</div>
+               </div>
+			   
+               <div class="box">
+                  <div class="info">
+                     <h3>Kabab</h3>
+                  <p>Thin slices cut from a cylindrical block of minced and seasoned meat.</p>
+                  </div>
+                  <div class="price">450</div>
+               </div>
+               <div class="box">
+                  <div class="info">
+                     <h3>Butter Chicken</h3>
+                  <p> Murgh Makhani added tomato puree to his chicken curry after running out of butter one day.</p>
+                  </div>
+                  <div class="price">240</div>
+               </div>
+               <div class="box">
+                  <div class="info">
+                     <h3>Mutton Hyderabadi Biryani</h3>
+                  <p> A spiced mix of meat and rice, traditionally cooked over an open fire in a leather pot.</p>
+                  </div>
+                  <div class="price">175</div>
+               </div>
+               <div class="box">
+                  <div class="info">
+                     <h3>Chilli Chicken</h3>
+                  <p> Indo-Chinese dish of chicken of Hakka Chinese heritage.</p>
+                  </div>
+                  <div class="price">160</div>
+               </div>
+               <div class="box">
+                  <div class="info">
+                     <h3>Chicken kadai</h3>
+                  <p>A delicious stir-fried curry with complex spices.</p>
+                  </div>
+                  <div class="price">259</div>
+               </div>
+            </div>
+         </div>
+
+         <div class="swiper-slide slide">
+            <h3 class="title">Food's</h3>
+
+            <div class="box-container">
+               <div class="box">
+                  <div class="info">
+                     <h3>delicious lunch</h3>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, ea?</p>
+                  </div>
+                  <div class="price">364</div>
+               </div>
+               <div class="box">
+                  <div class="info">
+                     <h3>delicious lunch</h3>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, ea?</p>
+                  </div>
+                  <div class="price">370</div>
+               </div>
+               <div class="box">
+                  <div class="info">
+                     <h3>delicious lunch</h3>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, ea?</p>
+                  </div>
+                  <div class="price">250</div>
+               </div>
+               <div class="box">
+                  <div class="info">
+                     <h3>delicious lunch</h3>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, ea?</p>
+                  </div>264</div>
+               </div>
+            </div>
+         </div>
+
+         <div class="swiper-slide slide">
+            <h3 class="title">Drink's</h3>
+
+            <div class="box-container">
+               <div class="box">
+                  <div class="info">
+                     <h3>Coco cola</h3>
+                  </div>
+                  <div class="price">150</div>
+               </div>
+               <div class="box">
+                  <div class="info">
+                     <h3>Sprite</h3>
+	                  </div>
+                  <div class="price">150</div>
+               </div>
+               <div class="box">
+                  <div class="info">
+                     <h3>Mountain dew</h3>
+                  </div>
+                  <div class="price">250</div>
+               </div>
+               <div class="box">
+                  <div class="info">
+                     <h3>Slice</h3>
+                  </div>
+                  <div class="price">250</div>
+               </div>
+               <div class="box">
+                  <div class="info">
+                     <h3>Lassi</h3>
+                  </div>
+                  <div class="price">199</div>
+               </div>
+            </div>
+         </div>
+
+         <div class="swiper-slide slide">
+            <h3 class="title">Dessert's</h3>
+
+            <div class="box-container">
+               <div class="box">
+                  <div class="info">
+                     <h3>Black forest</h3>
+                  </div>
+                  <div class="price">299</div>
+               </div>
+               <div class="box">
+                  <div class="info">
+                     <h3>Cheese cake</h3>
+                  </div>
+                  <div class="price">150</div>
+               </div>
+               <div class="box">
+                  <div class="info">
+                     <h3>Apple pie</h3>
+					</div>
+                  <div class="price">120</div>
+               </div>
+               <div class="box">
+                  <div class="info">
+                     <h3>Chocolate chip cookies</h3>
+                  </div>
+                  <div class="price">199</div>
+               </div>
+            </div>
+         </div>
+      </div>
+      
+
+      <div class="swiper-pagination"></div>
+
+   </div>
+   
+
+</section>
+
+<!-- Menu section ends -->
+<!-- order section starts -->
+
+<section id="order" class="order">
+   <div class="heading">
+      <span>order now</span>
+      <h3>fast home delivery</h3>
+   </div>
+
+   <form action="">
+      <div class="box-container">
+         <div class="box">
+            <div class="inputBox">
+               <span>full name</span>
+               <input type="text" placeholder="enter your name">
+            </div>
+            <div class="inputBox">
+               <span>food name</span>
+               <input type="text" placeholder="food you want">
+            </div>
+            <div class="inputBox">
+               <span>order details</span>
+               <input type="text" placeholder="specifics with food">
+            </div>
+            <div class="inputBox">
+               <span>your address</span>
+               <textarea name="" placeholder="enter your address" id="" cols="30" rows="10"></textarea>
+            </div>
+         </div>
+         <div class="box">
+            <div class="inputBox">
+               <span>number</span>
+               <input type="number" placeholder="enter your number">
+            </div>
+            <div class="inputBox">
+               <span>how much</span>
+               <input type="number" placeholder="how many you want">
+            </div>
+            <div class="inputBox">
+               <span>when you want</span>
+               <input type="datetime-local">
+            </div>
+            
+         </div>
+      </div>
+      <input type="submit" value="order now" class="btn">
+   </form>
+</section>
+
+
+<!-- blog section ends-->
+<!-- footer section starts-->
+
+
+<section class="footer">
+
+   <div class="icons-container">
+
+      <div class="icons">
+         <i class="fas fa-clock"></i>
+            <h3>opening hour</h3>
+            <p>07:00am to 10:00pm</p>
+      </div>
+
+      <div class="icons">
+         <i class="fas fa-phone"></i>
+            <h3>phone</h3>
+            <p>+91 876 252 4207</p>
+            <p>080 4857 25555</p>
+      </div>
+
+      <div class="icons">
+         <i class="fas fa-envelope"></i>
+            <h3>email</h3>
+            <p>jagangowda04@gmail.com</p>
+            <p>jaswanthc04@gmail.com</p>
+      </div>
+
+      <div class="icons">
+         <i class="fas fa-map"></i>
+            <h3>address</h3>
+            <p>Kormangla, Bangalore</p>
+      </div>
+
+   </div>
+
+   <div class="credit">created by <span>minimoto</span> | all rights reserved.</div>
+
+</section>
+</body>
+</html>
